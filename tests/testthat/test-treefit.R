@@ -79,6 +79,50 @@ test_that("calculate_mst", {
                            byrow=TRUE))
 })
 
+test_that("calculate_low_dimension_laplacian_eigenvectors", {
+  values <- cbind(1:10, 1:10)
+  mst <- calculate_mst(values)
+  eigenvectors <- calculate_low_dimension_laplacian_eigenvectors(mst, 4)
+  expect_equal(c(-0.44170765403093942281,
+                 -0.42532540417602071603,
+                 -0.39847023129619907333,
+                 -0.36180339887498919049),
+               eigenvectors[1, ])
+})
+
+test_that("calculate_canonical_correlation", {
+  values1 <- cbind(1:10, 1:10)
+  mst1 <- calculate_mst(values1)
+  eigenvectors1 <- calculate_low_dimension_laplacian_eigenvectors(mst1, 4)
+  values2 <- cbind(c(5, 1, 2, 5, 8, 9, 2, 8, 1, 2),
+                   c(9, 7, 4, 2, 8, 3, 1, 9, 4, 1))
+  mst2 <- calculate_mst(values2)
+  eigenvectors2 <- calculate_low_dimension_laplacian_eigenvectors(mst2, 4)
+  expect_equal(c(0.94948070,
+                 0.76344509,
+                 0.57019530,
+                 0.06708014),
+               calculate_canonical_correlation(eigenvectors1, eigenvectors2))
+})
+
+test_that("calculate_grassmann_distance_max_cca", {
+  canonical_correlation <- c(0.94948070,
+                             0.76344509,
+                             0.57019530,
+                             0.06708014)
+  expect_equal(0.3138254297,
+               calculate_grassmann_distance_max_cca(canonical_correlation))
+})
+
+test_that("calculate_grassmann_distance_rms_cca", {
+  canonical_correlation <- c(0.94948070,
+                             0.76344509,
+                             0.57019530,
+                             0.06708014)
+  expect_equal(0.7392590158,
+               calculate_grassmann_distance_rms_cca(canonical_correlation))
+})
+
 test_that("treefit: 2 arms", {
   star <- generate_2d_n_arms_star_data(200, 2, 0.1)
   fit <- treefit(list(expression=star),

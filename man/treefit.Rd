@@ -20,7 +20,7 @@ treefit(
 \itemize{
 \item \code{list(counts=COUNTS, expression=EXPRESSION)}: You must specify
 at least one of \code{COUNTS} and \code{EXPRESSION}.  They are
-\code{matrix}. The rows and columns correspond to samples such
+\code{matrix}. The rows and columns correspond to samples such as
 cells and features such as genes. \code{COUNTS}'s value is count
 data such as the number of genes expressed.  \code{EXPRESSION}'s
 value is normalized count data.

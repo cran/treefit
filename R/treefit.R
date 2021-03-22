@@ -139,8 +139,7 @@ calculate_grassmann_distance_max_cca <- function(canonical_correlation) {
 }
 
 calculate_grassmann_distance_rms_cca <- function(canonical_correlation) {
-  n_features <- length(canonical_correlation)
-  (n_features - sum(canonical_correlation ** 2)) / n_features
+  sqrt(1 - mean(canonical_correlation ** 2))
 }
 
 is_seurat <- function(object) {
@@ -350,7 +349,7 @@ calculate_eigenvectors_list <- function(original,
 #'
 #'   * `list(counts=COUNTS, expression=EXPRESSION)`: You must specify
 #'     at least one of `COUNTS` and `EXPRESSION`.  They are
-#'     `matrix`. The rows and columns correspond to samples such
+#'     `matrix`. The rows and columns correspond to samples such as
 #'     cells and features such as genes. `COUNTS`'s value is count
 #'     data such as the number of genes expressed.  `EXPRESSION`'s
 #'     value is normalized count data.
@@ -413,11 +412,13 @@ calculate_eigenvectors_list <- function(original,
 #'     distance values.
 #'
 #' @examples
+#' \dontrun{
 #' # Generate a star tree data that have normalized expression values
 #' # not count data.
 #' star <- treefit::generate_2d_n_arms_star_data(300, 3, 0.1)
 #' # Estimate tree-likeness of the tree data.
 #' fit <- treefit::treefit(list(expression=star))
+#' }
 #'
 #' @export
 treefit <- function(target,
@@ -519,6 +520,7 @@ treefit <- function(target,
 #' @method plot treefit
 #'
 #' @examples
+#' \dontrun{
 #' # Generate a tree data.
 #' tree <- treefit::generate_2d_n_arms_star_data(200, 3, 0.1)
 #' # Estimate the goodness-of-fit between tree models and the tree data.
@@ -530,6 +532,7 @@ treefit <- function(target,
 #' tree2 <- treefit::generate_2d_n_arms_star_data(200, 3, 0.9)
 #' fit2 <- treefit::treefit(list(expression=tree2), "tree2")
 #' plot(fit, fit2)
+#' }
 #'
 #' @import patchwork
 #'

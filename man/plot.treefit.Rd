@@ -21,6 +21,7 @@ or more estimated results to get insights from one or more
 Plot estimate results to get insight.
 }
 \examples{
+\dontrun{
 # Generate a tree data.
 tree <- treefit::generate_2d_n_arms_star_data(200, 3, 0.1)
 # Estimate the goodness-of-fit between tree models and the tree data.
@@ -32,5 +33,6 @@ plot(fit)
 tree2 <- treefit::generate_2d_n_arms_star_data(200, 3, 0.9)
 fit2 <- treefit::treefit(list(expression=tree2), "tree2")
 plot(fit, fit2)
+}
 
 }
