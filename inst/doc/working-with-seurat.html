@@ -27,45 +27,31 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
-<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
-// v0.0.1
-// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
-
-document.addEventListener('DOMContentLoaded', function() {
-  const codeList = document.getElementsByClassName("sourceCode");
-  for (var i = 0; i < codeList.length; i++) {
-    var linkList = codeList[i].getElementsByTagName('a');
-    for (var j = 0; j < linkList.length; j++) {
-      if (linkList[j].innerHTML === "") {
-        linkList[j].setAttribute('aria-hidden', 'true');
-      }
-    }
-  }
-});
-</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -74,58 +60,57 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -134,13 +119,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -348,131 +340,187 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<p>This is a user-friendly manual for biologists who are interested in performing quantitative trajectory inference with the Treefit package. If you are not familiar with the basic workflow of Treefit, then it would be a good idea to look at the introductory tutorial (<code>vignette(&quot;treefit&quot;)</code>) before using it.</p>
+<p>This is a user-friendly manual for biologists who are interested in
+performing quantitative trajectory inference with the Treefit package.
+If you are not familiar with the basic workflow of Treefit, then it
+would be a good idea to look at the introductory tutorial
+(<code>vignette(&quot;treefit&quot;)</code>) before using it.</p>
 <div id="why-quantitative-trajectory-inference" class="section level2">
 <h2>1. Why “quantitative” trajectory inference?</h2>
-<p>Single-cell technologies are expected to help us discover a novel type of cells and revolutionize our understanding of the process of cell differentiation, and trajectory inference is one of the key computational challenges in single-cell transcriptomics. In recent years, many software packages have been developed and widely used to extract an underlying “tree” trajectory from single-cell RNA-seq data.</p>
-<p>However, trajectory inference often suffers from the uncertainty due to the heterogeneity of individual cells and the high levels of technical noise in single-cell experiments. Hence, it was a fatal problem that there was no method to quantitatively assess the reliability of the estimated trajectory and to distinguish distinct cell types in an objective manner so far. Of course, many handy software packages are available for visualizing data and helping perform exploratory data analysis; however, we must stress that different visualization techniques often result in completely different pictures and the interpretation can be quite subjective and thus it is hard to reach a scientific truth solely by this approach. In order to facilitate scientific discoveries from single-cell gene expression data, we need a <em>quantitative</em> methodology.</p>
-<p>This is why we developed Treefit - the first software for performing <em>quantitative</em> trajectory inference. Treefit can be used in conjunction with existing popular software packages such as <a href="https://satijalab.org/seurat/">Seurat</a> and <a href="https://dynverse.org/">dynverse</a>. In this tutorial, we demonstrate how to use Treefit together with Seurat by analyzing the single-cell RNA-seq dataset in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>, 2014, Nature Biotechnology</a>.</p>
+<p>Single-cell technologies are expected to help us discover a novel
+type of cells and revolutionize our understanding of the process of cell
+differentiation, and trajectory inference is one of the key
+computational challenges in single-cell transcriptomics. In recent
+years, many software packages have been developed and widely used to
+extract an underlying “tree” trajectory from single-cell RNA-seq
+data.</p>
+<p>However, trajectory inference often suffers from the uncertainty due
+to the heterogeneity of individual cells and the high levels of
+technical noise in single-cell experiments. Hence, it was a fatal
+problem that there was no method to quantitatively assess the
+reliability of the estimated trajectory and to distinguish distinct cell
+types in an objective manner so far. Of course, many handy software
+packages are available for visualizing data and helping perform
+exploratory data analysis; however, we must stress that different
+visualization techniques often result in completely different pictures
+and the interpretation can be quite subjective and thus it is hard to
+reach a scientific truth solely by this approach. In order to facilitate
+scientific discoveries from single-cell gene expression data, we need a
+<em>quantitative</em> methodology.</p>
+<p>This is why we developed Treefit - the first software for performing
+<em>quantitative</em> trajectory inference. Treefit can be used in
+conjunction with existing popular software packages such as <a href="https://satijalab.org/seurat/">Seurat</a> and <a href="https://dynverse.org/">dynverse</a>. In this tutorial, we
+demonstrate how to use Treefit together with Seurat by analyzing the
+single-cell RNA-seq dataset in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>,
+2014, Nature Biotechnology</a>.</p>
 </div>
 <div id="trajectory-inference-using-treefit-and-seurat" class="section level2">
 <h2>2. Trajectory inference using Treefit and Seurat</h2>
-<p>As the Treefit package is meant to be used with gene expression data (either raw counts or normalized values) that have been already quality controlled, it is a good idea to use Seurat or other popular toolkits designed for the quality control of single-cell gene expression data (<i>e.g.</i>, filtering cells and normalizing the data) before the Treefit analysis.</p>
+<p>As the Treefit package is meant to be used with gene expression data
+(either raw counts or normalized values) that have been already quality
+controlled, it is a good idea to use Seurat or other popular toolkits
+designed for the quality control of single-cell gene expression data
+(<i>e.g.</i>, filtering cells and normalizing the data) before the
+Treefit analysis.</p>
 <div id="loading-the-dataset" class="section level3">
 <h3>2.1. Loading the dataset</h3>
-<p>We analyze the dataset provided in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>, 2014, Nature Biotechnology</a>. This dataset was originally acquired for the purpose of studying the process of differentiation of human myoblasts that can be reasonably explained by the linear model (<i>i.e.</i>, non-branching, chain-like structure). However, as the authors discuss in detail in the original article, their trajectory inference software based on a minimum spanning tree (MST) helped detect contamination with another cell lineage which was not related to myogenesis and so revealed that the bifurcation tree model (<i>i.e.</i>, Y-shaped tree structure) fits the data better than the linear model.</p>
-<p>To use this dataset, we download and read the dataset provided in dynverse as follows (see <a href="https://zenodo.org/record/1443566" class="uri">https://zenodo.org/record/1443566</a> for details).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>trapnell.path &lt;-<span class="st"> &quot;myoblast-differentiation_trapnell.rds&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(trapnell.path)) {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="kw">download.file</span>(<span class="st">&quot;https://zenodo.org/record/1443566/files/real/gold/myoblast-differentiation_trapnell.rds?download=1&quot;</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>                trapnell.path,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>                <span class="dt">mode=</span><span class="st">&quot;wb&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>trapnell.dynverse &lt;-<span class="st"> </span><span class="kw">readRDS</span>(trapnell.path)</span></code></pre></div>
+<p>We analyze the dataset provided in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>,
+2014, Nature Biotechnology</a>. This dataset was originally acquired for
+the purpose of studying the process of differentiation of human
+myoblasts that can be reasonably explained by the linear model
+(<i>i.e.</i>, non-branching, chain-like structure). However, as the
+authors discuss in detail in the original article, their trajectory
+inference software based on a minimum spanning tree (MST) helped detect
+contamination with another cell lineage which was not related to
+myogenesis and so revealed that the bifurcation tree model (<i>i.e.</i>,
+Y-shaped tree structure) fits the data better than the linear model.</p>
+<p>To use this dataset, we download and read the dataset provided in
+dynverse as follows (see <a href="https://zenodo.org/record/1443566" class="uri">https://zenodo.org/record/1443566</a> for details).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>trapnell.path <span class="ot">&lt;-</span> <span class="st">&quot;myoblast-differentiation_trapnell.rds&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(trapnell.path)) {</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="fu">download.file</span>(<span class="st">&quot;https://zenodo.org/record/1443566/files/real/gold/myoblast-differentiation_trapnell.rds?download=1&quot;</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>                trapnell.path,</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>                <span class="at">mode=</span><span class="st">&quot;wb&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>trapnell.dynverse <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(trapnell.path)</span></code></pre></div>
 </div>
 <div id="preprocessing-with-seurat" class="section level3">
 <h3>2.2. Preprocessing with Seurat</h3>
-<p>From now, we demonstrate how to preprocess the above data with Seurat. In order to handle data in Seurat, we first need to create a <code>Seurat</code> object. When creating a <code>Seurat</code> object from dynverse data, we must be aware that the roles of the rows and columns are reversed and therefore we need to transpose the matrix. In dynverse data, the rows and columns correspond to cells and genes, respectively, and vice versa in <code>Seurat</code> objects.</p>
-<p>Here we assume that we wish to perform the following preprocessing.</p>
+<p>From now, we demonstrate how to preprocess the above data with
+Seurat. In order to handle data in Seurat, we first need to create a
+<code>Seurat</code> object. When creating a <code>Seurat</code> object
+from dynverse data, we must be aware that the roles of the rows and
+columns are reversed and therefore we need to transpose the matrix. In
+dynverse data, the rows and columns correspond to cells and genes,
+respectively, and vice versa in <code>Seurat</code> objects.</p>
+<p>Here we assume that we wish to perform the following
+preprocessing.</p>
 <ul>
 <li>Excluding each gene that is only expressed in less than 3 cells</li>
 <li>Removing each cell that only expresses less than 200 genes</li>
 </ul>
 <p>This can be done by setting the designated parameters as follows.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>trapnell &lt;-<span class="st"> </span>Seurat<span class="op">::</span><span class="kw">CreateSeuratObject</span>(<span class="dt">counts=</span><span class="kw">t</span>(trapnell.dynverse<span class="op">$</span>count),</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>                                       <span class="dt">min.cells=</span><span class="dv">3</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>                                       <span class="dt">min.features=</span><span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>trapnell <span class="ot">&lt;-</span> Seurat<span class="sc">::</span><span class="fu">CreateSeuratObject</span>(<span class="at">counts=</span><span class="fu">t</span>(trapnell.dynverse<span class="sc">$</span>count),</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>                                       <span class="at">min.cells=</span><span class="dv">3</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                                       <span class="at">min.features=</span><span class="dv">200</span>)</span></code></pre></div>
 <pre><code>## Warning: Feature names cannot have underscores (&#39;_&#39;), replacing with dashes
 ## (&#39;-&#39;)</code></pre>
-<p>The “Feature names cannot have underscores …” warning message can be ignored. It’s caused by difference between dynverse and Seurat. Dynverse uses underscores for gene names but Seurat doesn’t allow it. Seurat replaces underscores with dashes automatically with the warning message.</p>
+<pre><code>## Warning: Data is of class matrix. Coercing to dgCMatrix.</code></pre>
+<p>The “Feature names cannot have underscores …” warning message can be
+ignored. It’s caused by difference between dynverse and Seurat. Dynverse
+uses underscores for gene names but Seurat doesn’t allow it. Seurat
+replaces underscores with dashes automatically with the warning
+message.</p>
 </div>
 <div id="visualization-with-seurat" class="section level3">
 <h3>2.3. Visualization with Seurat</h3>
-<p>Although pictures may not always describe reality, we usually visualize data before starting detailed analysis. Here we create a scatter plot by principal component analysis (PCA). Below are a few lines of code to do this and the result is shown in Figure 1.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>trapnell &lt;-<span class="st"> </span>Seurat<span class="op">::</span><span class="kw">FindVariableFeatures</span>(trapnell, <span class="dt">verbose=</span><span class="ot">FALSE</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>trapnell &lt;-<span class="st"> </span>Seurat<span class="op">::</span><span class="kw">ScaleData</span>(trapnell, <span class="dt">verbose=</span><span class="ot">FALSE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>trapnell &lt;-<span class="st"> </span>Seurat<span class="op">::</span><span class="kw">RunPCA</span>(trapnell, <span class="dt">verbose=</span><span class="ot">FALSE</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="kw">plot</span>(Seurat<span class="op">::</span><span class="kw">Embeddings</span>(trapnell))</span></code></pre></div>
-<div class="figure">
-<img src="data:image/png;base64,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" alt />
-<p class="caption">Figure 1. The result of PCA for the myoblast dataset</p>
-</div>
-<p>It is hard to reach the truth from the PCA result shown in Figure 1. Unlike the tree-like toy data analyzed in the previous tutorial (<code>vignette(&quot;treefit&quot;)</code>), we cannot easily recognize the underlying tree structure for various reasons (<i>e.g.</i>, high level of noise, contamination with different types of cells, and the inaccuracy of two-dimensional visualization of high dimensional data).</p>
-<p>Figure 2b in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>, 2014, Nature Biotechnology</a> shows that this dataset contains three distinct types of cells (<i>i.e.</i>, proliferating cells, differentiating myoblasts, and contaminating interstitial mesenchymal cells), which led the authors to adopt a Y-shaped tree model (<i>i.e.</i>, a star tree with three arms) to explain the data. However, it is difficult to quantify the reliability of this tree model and to confidently predict that the best-fit tree consists of three principal paths.</p>
+<p>Although pictures may not always describe reality, we usually
+visualize data before starting detailed analysis. Here we create a
+scatter plot by principal component analysis (PCA). Below are a few
+lines of code to do this and the result is shown in Figure 1.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>trapnell <span class="ot">&lt;-</span> Seurat<span class="sc">::</span><span class="fu">FindVariableFeatures</span>(trapnell, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>trapnell <span class="ot">&lt;-</span> Seurat<span class="sc">::</span><span class="fu">ScaleData</span>(trapnell, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## Warning: No layers found matching search pattern provided</code></pre>
+<pre><code>## Error in `ScaleData()`:
+## ! No layer matching pattern &#39;data&#39; found. Please run NormalizeData and retry</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>trapnell <span class="ot">&lt;-</span> Seurat<span class="sc">::</span><span class="fu">RunPCA</span>(trapnell, <span class="at">verbose=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## Warning: No layers found matching search pattern provided</code></pre>
+<pre><code>## Error in `PrepDR5()`:
+## ! No layer matching pattern &#39;scale.data&#39; not found. Please run ScaleData and retry</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">plot</span>(Seurat<span class="sc">::</span><span class="fu">Embeddings</span>(trapnell))</span></code></pre></div>
+<pre><code>## Error in `object[[reduction]]`:
+## ! &#39;pca&#39; not found in this Seurat object
+## </code></pre>
+<p>It is hard to reach the truth from the PCA result shown in Figure 1.
+Unlike the tree-like toy data analyzed in the previous tutorial
+(<code>vignette(&quot;treefit&quot;)</code>), we cannot easily recognize the
+underlying tree structure for various reasons (<i>e.g.</i>, high level
+of noise, contamination with different types of cells, and the
+inaccuracy of two-dimensional visualization of high dimensional
+data).</p>
+<p>Figure 2b in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>,
+2014, Nature Biotechnology</a> shows that this dataset contains three
+distinct types of cells (<i>i.e.</i>, proliferating cells,
+differentiating myoblasts, and contaminating interstitial mesenchymal
+cells), which led the authors to adopt a Y-shaped tree model
+(<i>i.e.</i>, a star tree with three arms) to explain the data. However,
+it is difficult to quantify the reliability of this tree model and to
+confidently predict that the best-fit tree consists of three principal
+paths.</p>
 </div>
 </div>
 <div id="quantitative-trajectory-inference-with-treefit" class="section level2">
 <h2>3. Quantitative trajectory inference with Treefit</h2>
 <div id="performing-the-treefit-analysis" class="section level3">
 <h3>3.1. Performing the Treefit analysis</h3>
-<p>Let us use Treefit in order to estimate the tree-likeness of the preprocessed myoblast data (which contain 290 cells) and to predict the number of principal paths in the best-fit tree. The workflow is the same as the toy data analysis described in the previous tutorial (<code>vignette(&quot;treefit&quot;)</code>).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>trapnell.fit &lt;-<span class="st"> </span>treefit<span class="op">::</span><span class="kw">treefit</span>(trapnell)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>trapnell.fit</span></code></pre></div>
-<pre><code>## $name
-## [1] &quot;trapnell&quot;
-## 
-## $max_cca_distance
-##     p      mean standard_deviation
-## 1   1 0.6303459         0.12773201
-## 2   2 0.4017539         0.07430735
-## 3   3 0.3255355         0.05479342
-## 4   4 0.2699334         0.04228203
-## 5   5 0.2500198         0.04335692
-## 6   6 0.2348225         0.03919659
-## 7   7 0.2269746         0.03631043
-## 8   8 0.2185274         0.03309986
-## 9   9 0.2096228         0.03344765
-## 10 10 0.2022596         0.03228294
-## 11 11 0.1928535         0.03540076
-## 12 12 0.1878315         0.03622790
-## 13 13 0.1811885         0.03879294
-## 14 14 0.1725552         0.03903983
-## 15 15 0.1501188         0.03806641
-## 16 16 0.1423743         0.03696181
-## 17 17 0.1332141         0.03425474
-## 18 18 0.1301240         0.03567304
-## 19 19 0.1261766         0.03589544
-## 20 20 0.1229404         0.03627929
-## 
-## $rms_cca_distance
-##     p      mean standard_deviation
-## 1   1 0.6303459         0.12773201
-## 2   2 0.5199144         0.06498940
-## 3   3 0.6170262         0.06686113
-## 4   4 0.6407349         0.06804858
-## 5   5 0.6547144         0.05073100
-## 6   6 0.5958460         0.06191394
-## 7   7 0.5788654         0.05568816
-## 8   8 0.6097528         0.04763631
-## 9   9 0.6087060         0.05660548
-## 10 10 0.6030251         0.04738148
-## 11 11 0.6011495         0.04392654
-## 12 12 0.6174355         0.03846905
-## 13 13 0.6230418         0.03887509
-## 14 14 0.6230970         0.03439415
-## 15 15 0.6267405         0.03635980
-## 16 16 0.6248394         0.03573201
-## 17 17 0.6311507         0.02858439
-## 18 18 0.6413880         0.02845259
-## 19 19 0.6425895         0.03337487
-## 20 20 0.6486755         0.02962193
-## 
-## $n_principal_paths_candidates
-## [1]  3  8 12 17
-## 
-## attr(,&quot;class&quot;)
-## [1] &quot;treefit&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">plot</span>(trapnell.fit)</span></code></pre></div>
-<div class="figure">
-<img src="data:image/png;base64,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" alt />
-<p class="caption">Figure 2. Summary of the Treefit analysis results</p>
-</div>
+<p>Let us use Treefit in order to estimate the tree-likeness of the
+preprocessed myoblast data (which contain 290 cells) and to predict the
+number of principal paths in the best-fit tree. The workflow is the same
+as the toy data analysis described in the previous tutorial
+(<code>vignette(&quot;treefit&quot;)</code>).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>trapnell.fit <span class="ot">&lt;-</span> treefit<span class="sc">::</span><span class="fu">treefit</span>(trapnell)</span></code></pre></div>
+<pre><code>## Error in `Seurat::GetAssayData()`:
+## ! `assay` must be one of &quot;RNA&quot;, not &quot;counts&quot;.</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>trapnell.fit</span></code></pre></div>
+<pre><code>## Error: オブジェクト &#39;trapnell.fit&#39; がありません</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">plot</span>(trapnell.fit)</span></code></pre></div>
+<pre><code>## Error: オブジェクト &#39;trapnell.fit&#39; がありません</code></pre>
 </div>
 <div id="interpreting-the-results" class="section level3">
 <h3>3.2. Interpreting the results</h3>
-<p>As explained in the previous tutorial (<code>vignette(&quot;treefit&quot;)</code>), the two Grassmann distances <code>$max_cca_distance</code> and <code>$rms_cca_distance</code> play an essential role in the Treefit analysis. The goal of the first analysis using <code>$max_cca_distance</code> is to measure the goodness-of-fit between data and data-derived tree trajectories, and this helps biologists make a mathematical and statistical evidence-based quantitative discussion. The other analysis with <code>$rms_cca_distance</code> aims to predict the number of principal paths in the best-fit tree trajectory, and the result of this analysis can be helpful to discover novel cell types or make sure whether or not there are contaminating cell types.</p>
-<p>If we compare the mean values of <code>$max_cca_distance</code> shown in the left panel of Figure 2 with the previous results (<code>vignette(&quot;treefit&quot;)</code>), we can see that the tree-likeness of the myoblast dataset is more like the noisy tree-like data with the <code>fatness</code> <code>0.8</code> rather than the tree-like data with the <code>fatness</code> <code>0.1</code>. This estimate is reasonable in light of the fact that the myoblast dataset in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>, 2014, Nature Biotechnology</a> contains some contaminating cell types that are not related to myogenesis.</p>
-<p>Turning to the right panel of Figure 2, we see that <code>$rms_cca_distance</code> attains the local minimum at <i>p</i>=2. Therefore, we can deduce that the best-fit tree trajectory for the myoblast data consists of <i>p</i>+1=3 principal paths. <code>$n_principal_paths_candidates[1]</code> also tells us the number principal paths is 3. Recalling the discussion in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>, 2014, Nature Biotechnology</a> (<i>i.e.</i>, the cells in the dataset can be classified into the following three groups: proliferating cells; differentiating myoblasts; and contaminating interstitial mesenchymal cells), we thus see that Treefit has correctly predicted the number of distinct principal paths forming the best-fit tree trajectory for this dataset.</p>
+<p>As explained in the previous tutorial
+(<code>vignette(&quot;treefit&quot;)</code>), the two Grassmann distances
+<code>$max_cca_distance</code> and <code>$rms_cca_distance</code> play
+an essential role in the Treefit analysis. The goal of the first
+analysis using <code>$max_cca_distance</code> is to measure the
+goodness-of-fit between data and data-derived tree trajectories, and
+this helps biologists make a mathematical and statistical evidence-based
+quantitative discussion. The other analysis with
+<code>$rms_cca_distance</code> aims to predict the number of principal
+paths in the best-fit tree trajectory, and the result of this analysis
+can be helpful to discover novel cell types or make sure whether or not
+there are contaminating cell types.</p>
+<p>If we compare the mean values of <code>$max_cca_distance</code> shown
+in the left panel of Figure 2 with the previous results
+(<code>vignette(&quot;treefit&quot;)</code>), we can see that the tree-likeness of
+the myoblast dataset is more like the noisy tree-like data with the
+<code>fatness</code> <code>0.8</code> rather than the tree-like data
+with the <code>fatness</code> <code>0.1</code>. This estimate is
+reasonable in light of the fact that the myoblast dataset in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>,
+2014, Nature Biotechnology</a> contains some contaminating cell types
+that are not related to myogenesis.</p>
+<p>Turning to the right panel of Figure 2, we see that
+<code>$rms_cca_distance</code> attains the local minimum at <i>p</i>=2.
+Therefore, we can deduce that the best-fit tree trajectory for the
+myoblast data consists of <i>p</i>+1=3 principal paths.
+<code>$n_principal_paths_candidates[1]</code> also tells us the number
+principal paths is 3. Recalling the discussion in <a href="https://www.nature.com/articles/nbt.2859">Trapnell <i>el al.</i>,
+2014, Nature Biotechnology</a> (<i>i.e.</i>, the cells in the dataset
+can be classified into the following three groups: proliferating cells;
+differentiating myoblasts; and contaminating interstitial mesenchymal
+cells), we thus see that Treefit has correctly predicted the number of
+distinct principal paths forming the best-fit tree trajectory for this
+dataset.</p>
 </div>
 </div>
 
